@@ -159,7 +159,21 @@ const lowCaseAnimalNames = [];
 
 zooAnimals.map((item) => {
 
-    lowCaseAnimalNames.push(item.animal_name.toLowerCase());
+    if (item.animal_name.indexOf(' ') !== -1 && item.animal_name.indexOf(',') !== -1)
+    {
+      lowCaseAnimalNames.push(item.animal_name.toLowerCase());
+    }
+    else{
+      
+        let nameArr = item.animal_name.split(' ');
+        
+        let fullName = `${nameArr[1]}, ${nameArr[0]}` 
+
+        lowCaseAnimalNames.push(fullName.toLowerCase());
+            
+    }
+
+    
 
 });
 console.log(lowCaseAnimalNames);
